@@ -1,12 +1,13 @@
 import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
 import Image from "next/image";
+import HeroSection from "@/components/landing-page/hero-section";
 
 export default function Home() {
   return (
     <div>
-      <h1>Hello nextjs</h1>
+      <HeroSection/>
 
-      <Button variant="default" size="lg">Click me</Button>
     </div>
   );
 }
