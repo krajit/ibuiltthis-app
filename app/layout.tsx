@@ -5,6 +5,7 @@ import "./globals.css";
 const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
+  display: 'swap', // This helps with font loading
 });
 
 export const metadata: Metadata = {

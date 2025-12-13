@@ -25,7 +25,8 @@ const statsData = [
     {
         label: "Active Creaters",
         value: "10K+",
-        icon: UsersRoundIcon
+        icon: UsersRoundIcon,
+        hasborder: true
     },
     {
         label: "Monthly Visitors",
@@ -66,7 +67,12 @@ export default function HeroSection() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-3 sm:gap-12 max-w-2xl  w-full mx-auto gap-8">
                     {statsData.map((stat) => (
-                            <StatsCard key={stat.label} label={stat.label} value={stat.value} icon={stat.icon} />
+                            <StatsCard 
+                            key={stat.label} 
+                            label={stat.label} 
+                            value={stat.value} 
+                            icon={stat.icon}
+                            hasborder={stat.hasborder} />
                         ))}
                     </div>
 
