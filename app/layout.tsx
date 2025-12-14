@@ -3,6 +3,7 @@ import { Outfit } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/common/header";
 import Footer from "@/components/common/footer";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -21,18 +22,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <ClerkProvider>
+      <html lang="en">
 
 
-      <body
-        className={`${outfit.variable} antialiased`}
-      >
-        <Header/>
-        {children}
-        <Footer/>
+        <body className={`${outfit.variable} antialiased`}>
 
-      </body>
+          <Header />
+          {children}
+          <Footer />
 
-    </html>
+        </body>
+
+      </html>
+    </ClerkProvider>
   );
 }
+
+

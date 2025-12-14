@@ -1,6 +1,7 @@
 import { CompassIcon, HomeIcon, SparklesIcon, UserIcon } from "lucide-react";
 import Link from "next/link";
 import { Button } from "../ui/button";
+import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
 
 const Logo = () => {
     return (
@@ -38,7 +39,7 @@ export default function Header() {
                             <span>Explore</span>
                         </Link>
                     </nav>
-                    <div className="flex items-center gap-3">
+                    {/* <div className="flex items-center gap-3">
                         {isSignedIn ? (
                             <>
                                 <Button asChild>
@@ -47,7 +48,6 @@ export default function Header() {
                                         <span>Submit Project</span>
                                     </Link>
                                 </Button>
-                                {/* Clerk User */}
                                 <Button variant="ghost">
                                     <UserIcon className="size-4" />
                                 </Button>
@@ -58,8 +58,27 @@ export default function Header() {
                                 <Button> Sign Up </Button>
                             </>
                         )}
-                    </div>
+                    </div> */}
+                    <div className="flex items-center gap-3">
+                        <SignedOut>
+                            <SignInButton mode="modal"/>
+                            <SignUpButton mode="modal">
+                                <Button>
+                                    Sign Up
+                                </Button>
+                            </SignUpButton>
+                        </SignedOut>
+                        <SignedIn>
+                            <Button asChild>
+                                <Link href="/submit">
+                                    <SparklesIcon className="size-4" />
+                                    <span>Submit Project</span>
+                                </Link>
+                            </Button>
+                            <UserButton />
+                        </SignedIn>
 
+                    </div>
 
                 </div>
             </div>
